@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const route = useRoute()
+
+const onPricingClick = async () => {
+  if (route.path !== '/') {
+    await navigateTo('/#pricing')
+    await nextTick()
+  }
+  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+</script>
+
 <template>
   <div class="min-h-dvh bg-ink-950 text-slate-100">
     <header class="border-b border-white/10 bg-[#1c0a0a]/80 backdrop-blur-xl">
@@ -7,9 +19,9 @@
           <span class="text-lg font-semibold tracking-tight">ChineseBuddy AI</span>
         </NuxtLink>
         <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-          <NuxtLink to="/#features">Features</NuxtLink>
-          <NuxtLink to="/#pricing">Pricing</NuxtLink>
-          <NuxtLink to="/practice">Practice</NuxtLink>
+          <NuxtLink to="/#features" class="hover:text-white">Features</NuxtLink>
+          <a href="/#pricing" class="hover:text-white" @click.prevent="onPricingClick">Pricing</a>
+          <NuxtLink to="/practice" class="hover:text-white">Practice</NuxtLink>
         </nav>
         <div class="flex items-center gap-3">
           <AuthBar />

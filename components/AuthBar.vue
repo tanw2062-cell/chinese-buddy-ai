@@ -23,7 +23,7 @@ const logout = async () => {
     <a
       v-else
       href="/api/auth/google"
-      class="inline-flex items-center rounded-md bg-fuchsia-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-fuchsia-500"
+      class="inline-flex items-center rounded-md bg-red-600 px-2.5 py-1 text-xs font-medium text-white hover:bg-red-500"
     >
       Google sign-in
     </a>
