@@ -1,0 +1,19 @@
+{
+  "name": "chinese-buddy-ai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/ui": "2.22.3",
+    "@supabase/supabase-js": "^2.117.2",
+    "mysql2": "^3.24.5",
+    "nuxt": "3.21.11",
+    "undici": "^7.30.0"
+  }
+}
