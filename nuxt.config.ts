@@ -15,14 +15,14 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'ChineseBuddy AI — 24/7 Mandarin Speaking Partner',
+      title: 'DevUICraft — Premium Tailwind Components with Animations',
       htmlAttrs: { lang: 'en', class: 'dark' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-        { name: 'theme-color', content: '#1c0a0a' },
+        { name: 'theme-color', content: '#020617' },
         {
           name: 'description',
-          content: 'Practice real-life Mandarin with AI tutors: immersive conversation, grammar and pinyin support, and authentic cultural buddies. Premium from $9.90/month.'
+          content: 'Copy-and-paste premium Tailwind CSS and Vue 3 components with production-ready animations. $9.90/month.'
         }
       ]
     }
@@ -37,6 +37,9 @@ export default defineNuxtConfig({
     googleRedirectUri: process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3001/api/auth/google/callback',
     googleHttpsProxy: process.env.GOOGLE_HTTPS_PROXY || process.env.HTTPS_PROXY || '',
     supabaseUrl: process.env.SUPABASE_URL || '',
-    supabaseKey: process.env.SUPABASE_KEY || ''
+    supabaseKey: process.env.SUPABASE_KEY || '',
+    public: {
+      creemCheckoutUrl: process.env.CREEM_CHECKOUT_URL || '#pricing'
+    }
   }
 })

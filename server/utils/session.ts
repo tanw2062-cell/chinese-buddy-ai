@@ -7,6 +7,7 @@ export interface AuthUser {
   name: string | null
   avatar: string | null
   energy: number
+  is_premium: boolean
 }
 
 const cookieName = 'companion_session'
@@ -59,13 +60,25 @@ export const getAuthUser = async (event: Parameters<typeof getCookie>[0]) => {
   if (!userId) {
     return null
   }
-  const { data, error } = await getSupabase()
+  let { data, error } = await getSupabase()
     .from('users')
-    .select('id, google_id, email, name, avatar, energy')
+    .select('id, google_id, email, name, avatar, energy, is_premium')
     .eq('id', userId)
     .maybeSingle()
+  if (error) {
+    const fallback = await getSupabase()
+      .from('users')
+      .select('id, google_id, email, name, avatar, energy')
+      .eq('id', userId)
+      .maybeSingle()
+    data = fallback.data ? { ...fallback.data, is_premium: false } : null
+    error = fallback.error
+  }
   if (error || !data) {
     return null
   }
-  return data as AuthUser
+  return {
+    ...data,
+    is_premium: Boolean((data as { is_premium?: boolean }).is_premium)
+  } as AuthUser
 }

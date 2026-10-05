@@ -1,9 +1,8 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'practice' })
+definePageMeta({ layout: 'default' })
+await navigateTo('/', { replace: true })
 </script>
 
 <template>
-  <div class="h-full">
-    <ChatPanel />
-  </div>
+  <p class="text-sm text-slate-400">Redirecting to DevUICraft…</p>
 </template>

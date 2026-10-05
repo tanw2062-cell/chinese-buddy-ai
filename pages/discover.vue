@@ -1,10 +1,8 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'practice' })
+definePageMeta({ layout: 'default' })
+await navigateTo('/', { replace: true })
 </script>
 
 <template>
-  <div class="flex h-full flex-col gap-4 overflow-y-auto p-4 md:hidden">
-    <CompanionStaminaBar />
-    <CompanionCharacterList />
-  </div>
+  <p class="text-sm text-slate-400">Redirecting to DevUICraft…</p>
 </template>
